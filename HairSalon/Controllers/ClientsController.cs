@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft .EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
@@ -18,13 +18,13 @@ namespace HairSalon.Controllers
     
     public ActionResult Index()
     {
-      List<Client> model = _db.Clients.Include(client.Stylist).ToList();
+      List<Client> model = _db.Clients.Include(client => client.Stylist).ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
-      ViewBag.StylistId = new SelectList(_dbStylists, "StylistId", "Name");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View();
     }
 
@@ -32,7 +32,7 @@ namespace HairSalon.Controllers
     public ActionResult Create(Client client)
     {
       _db.Clients.Add(client);
-      _db.SaveChange();
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
@@ -45,7 +45,7 @@ namespace HairSalon.Controllers
     public ActionResult Edit(int id)
     {
       var thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      ViewBag.StylistId = new SelectList(_dbStylists, "StylistId", "Name");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View(thisClient);
     }
 
@@ -53,7 +53,7 @@ namespace HairSalon.Controllers
     public ActionResult Edit(Client client)
     {
       _db.Entry(client).State = EntityState.Modified;
-      _db.SaveChange();
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 

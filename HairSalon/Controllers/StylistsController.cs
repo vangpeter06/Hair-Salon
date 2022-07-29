@@ -10,7 +10,7 @@ namespace HairSalon.Controllers
   {
     private readonly HairSalonContext _db;
     
-    public StylistsController(HairSalonContext _db)
+    public StylistsController(HairSalonContext db)
     {
       _db = db;
     }
@@ -50,7 +50,7 @@ namespace HairSalon.Controllers
     public ActionResult Edit(Stylist stylist)
     {
       _db.Entry(stylist).State = EntityState.Modified;
-      _db.SaveChange();
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
@@ -65,7 +65,7 @@ namespace HairSalon.Controllers
     {
       var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       _db.Stylists.Remove(thisStylist);
-      _db.SaveChange();
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
   }
