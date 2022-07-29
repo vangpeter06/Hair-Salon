@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ClarieSalon.Models;
+using HairSalon.Models;
 
-namespace ClarieSalon
+namespace HairSalon
 {
   public class Startup
   {
@@ -25,7 +25,7 @@ namespace ClarieSalon
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<ClarieSalonContext>(options => options
+        .AddDbContext<HairSalonContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     }
 
