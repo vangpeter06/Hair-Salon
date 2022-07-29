@@ -2,10 +2,11 @@
   Layout = "_Layout";
 }
 
-@model HairSalon.Model.Stylist
+@model HairSalon.Models.Stylist;
 
 <h2>Add New Stylist</h2>
 
+<hr />
 @using(Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
@@ -18,4 +19,4 @@
 }
 
 <p>@Html.ActionLink("Show all Stylist", "Index")</p>
-<p>@HtmlActionLink("Back to Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>

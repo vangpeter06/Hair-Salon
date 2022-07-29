@@ -2,10 +2,11 @@
   Layout = "_Layout";
 }
 
-@model HairSalon.Models.Client
+@model HairSalon.Models.Client;
 
 <h2>Edit Client:@Html.DisplayFor(model => model.Name)</h2>
 
+<hr />
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model =>model.ClientId)
@@ -20,7 +21,7 @@
   @Html.EditorFor(model => model.StyleHair)
 
   @Html.LabelFor(model => model.Stylist, "Stylist Name:")
-  @Html.DropDownList(StylisId)
+  @Html.DropDownList("StylistId")
 
   <input type="submit" value="Save"/>
 }
