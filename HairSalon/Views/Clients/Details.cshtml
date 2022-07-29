@@ -7,10 +7,10 @@
 <h2>Clients Details</h2>
 
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<ul>
-<li>Phone Number: @Html.DisplayFor(model => model.PhoneNumber)</li>
-<li>Here for: @Html.DisplayFor(model => model.StyleHair)</li>
-</ul>
+  <ul>
+  <li>Phone Number: @Html.DisplayFor(model => model.PhoneNumber)</li>
+  <li>Style Hair: @Html.DisplayFor(model => model.StyleHair)</li>
+  </ul>
 
 <p>@Html.ActionLink("Edit Clients", "Edit", new {id =  Model.ClientId})</p>
 <p>@Html.ActionLink("Delete Clients", "Delete", new {id =  Model.ClientId})</p>
