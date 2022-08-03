@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace HairSalon.Models
 {
@@ -13,7 +15,9 @@ namespace HairSalon.Models
 
         public string Name { get; set; }
 
-        public string HireDate { get; set; }
+        [DisplayFormat(DataFormatString = "0:MM/dd/yyyy")]
+
+        public DateTime HireDate { get; set; }
 
         public virtual ICollection<Client> Clients { get; set; }
     }

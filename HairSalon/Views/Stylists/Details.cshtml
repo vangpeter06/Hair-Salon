@@ -8,9 +8,7 @@
 <h2>Stylists Details</h2>
 
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<ul>
-  <li>Hire Date: @Html.DisplayFor(model => model.HireDate)</li>
-</ul>
+<h5>Due Date: @Convert.ToDateTime(Model.HireDate).ToString("dd/MM/yyyy")</h5>
 
 <p>@Html.ActionLink("Edit Stylists", "Edit", new {id = Model.StylistId})</p>
 <p>@Html.ActionLink("Delete Stylists", "Delete", new {id = Model.StylistId})</p>

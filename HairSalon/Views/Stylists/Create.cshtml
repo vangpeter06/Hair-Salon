@@ -13,7 +13,7 @@
   @Html.TextBoxFor(model => model.Name)
 
   @Html.LabelFor(model => model.HireDate)
-  @Html.TextBoxFor(model => model.HireDate)
+  @Html.TextBoxFor(model => model.HireDate, new { type = "date"})
 
   <input type="submit" value="Add new Stylist" />
 }
